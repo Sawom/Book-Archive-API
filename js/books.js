@@ -3,10 +3,21 @@ const loadBook = () => {
     const getInput = document.getElementById('inputField');
     const getInputText = getInput.value ;
     getInput.value = '';
-    const url = `https://openlibrary.org/search.json?q=${getInputText}` ;
-    fetch(url)
-    .then(response => response.json())
-    .then(data => showBook(data.docs))
+    // if input field empty
+    if(getInputText === ''){
+        const displayMsg = document.getElementById('displayBook');
+        const msg = document.createElement('h3');
+        msg.innerHTML = `
+        <h3 class="text-danger" > Please write something in input field to display books!! </h3>
+        `
+        displayMsg.appendChild(msg);
+    } 
+    else{
+        const url = `https://openlibrary.org/search.json?q=${getInputText}` ;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => showBook(data.docs))
+    }
 }
 // show results
 const showBook = (books) => {
@@ -14,7 +25,13 @@ const showBook = (books) => {
     const displayBook = document.getElementById('displayBook');
     displayBook.textContent = '';
     // display no result found
-    
+    if(books.length === 0){
+        const h3 = document.createElement('h3');
+        h3.innerHTML = `
+        <h3 class="text-danger" > No result found!! </h3>
+        `
+        displayBook.appendChild(h3);
+    }
     books.forEach(book => {
         // console.log(book)
         const div = document.createElement('div');
