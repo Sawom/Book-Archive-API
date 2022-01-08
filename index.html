@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book-archive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <!-- book search section -->
+    <br><br>
+    <section class="container ">
+        <div>
+            <h1 class="text-center text-success">Book-Archive</h1>
+            <h3 class="text-center text-primary">Search Book Here</h3> <br>
+        </div>
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="inputField" type="text" class="form-control " placeholder="search book here" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="loadBook()" class="btn btn-dark" type="button" id="button-addon2">Search</button>
+        </div>
+        <br>
+    </section>
+    <!-- show result  -->
+    <section>
+        <!--  show all books info -->
+        <div id="displayBook" class="row row-cols-1 row-cols-md-3 g-4">
+
+        </div>
+    </section>
+    <script src="js/books.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
