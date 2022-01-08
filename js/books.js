@@ -13,6 +13,8 @@ const showBook = (books) => {
     // console.log(books);
     const displayBook = document.getElementById('displayBook');
     displayBook.textContent = '';
+    // display no result found
+    
     books.forEach(book => {
         // console.log(book)
         const div = document.createElement('div');
