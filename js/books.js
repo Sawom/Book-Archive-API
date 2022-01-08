@@ -32,8 +32,13 @@ const showBook = (books) => {
         `
         displayBook.appendChild(h3);
     }
+    var count = 0;
     books.forEach(book => {
         // console.log(book)
+        // how much result fount condition 
+        if(book.length !== 0){
+            count = count+1;
+        }
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -48,4 +53,13 @@ const showBook = (books) => {
         `;
         displayBook.appendChild(div);
     })
+    // console.log(count);
+    // how much result fount show on ui
+    const noOfResult = document.getElementById('numberResult');
+    noOfResult.textContent = '';
+    const h4 = document.createElement('h4');
+    h4.innerHTML = `
+        <h5 class="text-success">${count} Result has found! </h5>
+    `
+    noOfResult.appendChild(h4);
 }
